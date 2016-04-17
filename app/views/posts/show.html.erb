@@ -8,5 +8,7 @@ Article: <%= @post.article %>
 Source: <%= @post.source %>
 iews: <%= @post.views %>
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
+<% if admin_signed_in? %>
+  <%= link_to 'Edit', edit_post_path(@post) %> |
+<% end %>
 <%= link_to 'Back', posts_path %>
