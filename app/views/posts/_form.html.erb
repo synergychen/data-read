@@ -1,0 +1,37 @@
+<%= form_for(@post) do |f| %>
+  <% if @post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% @post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div id="title-number">
+    Title Number: <%= f.text_field :title_number %>
+  </div>
+
+  <div id="title-unit">
+    Title Unit: <%= f.text_field :title_unit %>
+  </div>
+
+  <div id="subtitle">
+    Subtitle: <%= f.text_field :subtitle %>
+  </div>
+
+  <div id="article">
+    Article: <%= f.text_field :article %>
+  </div>
+
+  <div id="source">
+    Source: <%= f.text_field :source %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
