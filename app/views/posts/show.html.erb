@@ -1,0 +1,12 @@
+<p id="notice"><%= notice %></p>
+
+Title Number: <%= @post.title_number %>
+Title Unit: <%= @post.title_unit %>
+Subtitle: <%= @post.subtitle %>
+Date Published: <%= @post.date_published %>
+Article: <%= @post.article %>
+Source: <%= @post.source %>
+iews: <%= @post.views %>
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>
