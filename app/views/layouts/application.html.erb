@@ -6,23 +6,29 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
 
-<div id="user_nav">
-  <% if admin_signed_in? %>
-    Signed in as admin: <%= current_admin.email %>
-    <%= link_to "Sign out", destroy_admin_session_path, :method => :delete %>
-  <% else %>
-    <% if user_signed_in? %>
-      Signed in as user: <%= current_user.email %>
-      <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
-    <% else %>
-      <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
-    <% end %>
-  <% end %>
-</div>
+<body class="blue">
+  <nav class="white" role="navigation">
+    <div class="nav-wrapper container">
+      <%= link_to "Date Read", root_path, class: "brand-logo blue-text" %>
+      <ul class="right hide-on-med-and-down">
+        <% if admin_signed_in? %>
+          <li class="blue-text">Admin: <%= current_admin.email %></li>
+          <li><%= link_to "Sign out", destroy_admin_session_path, method: :delete, class: "blue-text" %></li>
+        <% elsif user_signed_in? %>
+          <li class="blue-text"><%= current_user.email %></li>
+          <li><%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "blue-text" %></li>
+        <% else %>
+          <li>
+            <%= link_to "Sign up", new_user_registration_path, class: "blue-text" %>
+            <%= link_to "Log in", new_user_session_path, class: "blue-text" %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
 
-<%= yield %>
-
+  <%= yield %>
 </body>
+
 </html>
