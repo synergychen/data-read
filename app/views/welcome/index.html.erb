@@ -1,10 +1,10 @@
 <%= stylesheet_link_tag "shared/news-card" %>
 
 <div id="welcome-wrapper">
-  <div class="row white-text" id="welcome-title-wrapper">
-    <h2 class="center-align welcome-title">Know the World Better</h2>
-    <h2 class="center-align welcome-title">in</h2>
-    <h2 class="center-align welcome-title">5 Seconds</h2>
+  <div class="row center white-text" id="welcome-title-wrapper">
+    <h2 class="welcome-title">Know the World Better</h2>
+    <h2 class="welcome-title">in</h2>
+    <h2 class="welcome-title">5 Seconds</h2>
   </div>
 
   <div class="row news-card">
@@ -32,5 +32,9 @@
         </div>
       </div>
     </div>
+  </div>
+
+  <div class="row center">
+   <%= link_to "GET STARTED", posts_path, class: "waves-effect waves-white btn-large blue lighten-2" %>
   </div>
 </div>
