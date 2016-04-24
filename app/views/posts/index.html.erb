@@ -1,26 +1,45 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Listing News</h1>
-
 <ul>
   <% @posts.each do |post| %>
   <li>
-    <%= post.title_number %>
-    <%= post.title_unit %>
-    <%= post.subtitle %>
-    <%= post.date_published %>
-    <%= post.article %>
-    <%= post.source %>
-    <%= post.views %>
+    <div class="row news-card">
+      <div class="col s12 m8 l6 offset-m2 offset-l3">
+        <div class="card hoverable white">
+          <div class="card-content">
+            <span class="card-title">
+              <span class="title-number"><%= post.title_number %></span>
+              <span class="title-unit"><%= post.title_unit %></span>
+            </span>
+            <p><%= post.subtitle %></p>
+          </div>
 
-    <%= link_to 'Show', post %>
+          <div class="card-action">
+            <a class="waves-effect waves-white btn blue activator">More</a>
+            <%= link_to "Source", post.source, class: "waves-effect waves-white btn blue" %>
+            <% if admin_signed_in? %>
+              <%= link_to 'Edit', edit_post_path(post), class: "waves-effect waves-white btn red" %>
+              <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class: "waves-effect waves-white btn red" %>
+            <% end %>
+          </div>
 
-    <% if admin_signed_in? %>
-      <%= link_to 'Edit', edit_post_path(post) %>
-      <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
-    <% end %>
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">
+              <%= post.title_number %>
+              <%= post.title_unit %>
+            <i class="material-icons right">close</i>
+            </span>
+            <p><%= post.article %></p>
+          </div>
+        </div>
+      </div>
+    </div>
   </li>
   <% end %>
 </ul>
 
-<%= link_to 'New Post', new_post_path %>
+<% if admin_signed_in? %>
+  <div class="fixed-action-btn" style="bottom: 80px; right: 24px;">
+    <%= link_to new_post_path, class: "btn-floating btn-large waves-effect waves-light red" do %>
+      <i class="material-icons">add</i>
+    <% end %>
+  </div>
+<% end %>

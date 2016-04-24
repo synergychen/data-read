@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="user-auth-wrapper card col l4 m8 s12 offset-l4 offset-m2">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="row">
+        <div class="field">
+          <%= f.email_field :email, autofocus: true, placeholder: "Email" %>
+        </div>
+
+        <div class="field">
+          <%= f.password_field :password, autocomplete: "off", placeholder: "Password" %>
+        </div>
+      </div>
+
+      <div class="actions row">
+        <%= f.submit "Admin Log in", class: "waves-effect waves-light btn col l12 m12 s12" %>
+      </div>
+    <% end %>
+  </div>
+</div>
