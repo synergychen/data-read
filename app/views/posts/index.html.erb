@@ -13,12 +13,21 @@
           </div>
 
           <div class="card-action">
-            <%= link_to 'Show', post %>
-            <%= link_to "Source", post.source, class: "grey-text" %>
+            <a class="waves-effect waves-white btn blue activator">More</a>
+            <a class="waves-effect waves-white btn blue">Source</a>
             <% if admin_signed_in? %>
               <%= link_to 'Edit', edit_post_path(post) %>
               <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
             <% end %>
+          </div>
+
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">
+              <%= post.title_number %>
+              <%= post.title_unit %>
+            <i class="material-icons right">close</i>
+            </span>
+            <p><%= post.article %></p>
           </div>
         </div>
       </div>
