@@ -16,8 +16,8 @@
             <a class="waves-effect waves-white btn blue activator">More</a>
             <%= link_to "Source", post.source, class: "waves-effect waves-white btn blue" %>
             <% if admin_signed_in? %>
-              <%= link_to 'Edit', edit_post_path(post) %>
-              <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+              <%= link_to 'Edit', edit_post_path(post), class: "waves-effect waves-white btn red" %>
+              <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class: "waves-effect waves-white btn red" %>
             <% end %>
           </div>
 
