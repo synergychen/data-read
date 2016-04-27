@@ -5,6 +5,9 @@ class Post < ActiveRecord::Base
 
   after_initialize :init
 
+  RECENT_POSTS_NUM = 20
+  scope :recent, -> { order(date_published: :desc).limit(RECENT_POSTS_NUM) }
+
   def init
     self.date_published ||= Time.now
     self.views ||= 0
